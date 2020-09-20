@@ -37,19 +37,15 @@ class TestAddGroup(unittest.TestCase):
         self.logout(wd)
 
     def logout(self, wd):
-        # logout
         wd.find_element_by_link_text("Logout").click()
 
     def return_to_group_page(self, wd):
-        # return to group page
         wd.find_element_by_link_text("group page").click()
 
     def submit_new_group(self, wd):
-        # submit new group
         wd.find_element_by_name("submit").click()
 
     def fill_new_group(self, wd, group):
-        # fill new group
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys(group.name)
@@ -62,11 +58,9 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("new").click()
 
     def open_groups_page(self, wd):
-        # open groups page
         wd.find_element_by_link_text("groups").click()
 
     def login(self, wd, username, password):
-        # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -75,7 +69,6 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_xpath("//input[@value='Login']").click()
 
     def open_base_url(self, wd):
-        # open_base_url
         wd.get("http://localhost/addressbook/")
 
     def is_element_present(self, how, what):
