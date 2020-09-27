@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.common.exceptions import NoSuchElementException
 from fixture.session import SessionHelper
 from fixture.group import GroupHelper
 from fixture.add_user import AddUserHelper
