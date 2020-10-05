@@ -8,7 +8,8 @@ class AddUserHelper:
 
     def go_to_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not wd.current_url.endswith("/"):
+            wd.find_element_by_link_text("home").click()
 
     def init_new_user(self):
         wd = self.app.wd
