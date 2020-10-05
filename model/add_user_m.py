@@ -2,7 +2,7 @@
 
 class AddUser:
 
-    def __init__(self, firstname, middlename, lastname, title, company, home_phone):
+    def __init__(self, firstname=None, middlename=None, lastname=None, title=None, company=None, home_phone=None):
         self.firstname = firstname
         self.middlename = middlename
         self.lastname = lastname

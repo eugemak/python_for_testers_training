@@ -16,23 +16,20 @@ class AddUserHelper:
 
     def fill_user_form(self, add_user):
         wd = self.app.wd
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(add_user.firstname)
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(add_user.middlename)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(add_user.lastname)
+        self.user_change_field("firstname", add_user.firstname)
+        self.user_change_field("middlename", add_user.middlename)
+        self.user_change_field("lastname", add_user.lastname)
         wd.find_element_by_name("title").clear()
         wd.find_element_by_name("title").send_keys(add_user.title)
-        wd.find_element_by_name("company").click()
-        wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(add_user.company)
-        wd.find_element_by_name("home").click()
-        wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(add_user.home_phone)
+        self.user_change_field("company", add_user.company)
+        self.user_change_field("home", add_user.home_phone)
+
+    def user_change_field(self, user_field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(user_field_name).click()
+            wd.find_element_by_name(user_field_name).clear()
+            wd.find_element_by_name(user_field_name).send_keys(text)
 
     def create_new_user(self, add_user):
         wd = self.app.wd
@@ -57,6 +54,12 @@ class AddUserHelper:
 
     def delete_user(self):
         wd = self.app.wd
+        self.select_user()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.go_to_home_page()
+
+    def count(self):
+        wd = self.app.wd
+        self.go_to_home_page()
+        return len(wd.find_elements_by_name("selected[]"))
