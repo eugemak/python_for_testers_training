@@ -1,4 +1,5 @@
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException
+from model.add_user_m import AddUser
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class AddUserHelper:
@@ -6,10 +7,12 @@ class AddUserHelper:
     def __init__(self, app):
         self.app = app
 
-    def go_to_home_page(self):
+    def home_page(self):
         wd = self.app.wd
-        if not wd.current_url.endswith("/"):
-            wd.find_element_by_link_text("home").click()
+        # if not wd.current_url.endswith("/"):
+        #     wd.get("http://localhost/addressbook/")
+        wd.find_element_by_link_text("home").click()
+
 
     def init_new_user(self):
         wd = self.app.wd
@@ -37,7 +40,7 @@ class AddUserHelper:
         self.init_new_user()
         self.fill_user_form(add_user)
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
-        self.go_to_home_page()
+        self.home_page()
 
     def select_user(self):
         wd = self.app.wd
@@ -51,16 +54,31 @@ class AddUserHelper:
         wd = self.app.wd
         self.fill_user_form(add_user)
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
-        self.go_to_home_page()
+        self.home_page()
 
     def delete_user(self):
         wd = self.app.wd
+        self.home_page()
         self.select_user()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
-        self.go_to_home_page()
+        WebDriverWait(wd, 5)
+        self.home_page()
 
     def count(self):
         wd = self.app.wd
-        self.go_to_home_page()
+        self.home_page()
         return len(wd.find_elements_by_name("selected[]"))
+
+    def get_users_list(self):
+        wd = self.app.wd
+        self.home_page()
+        wd.get("http://localhost/addressbook/")
+        wd.implicitly_wait(1)
+        users = []
+        for element in wd.find_elements_by_css_selector("tr[name='entry']"):
+            user_id = element.find_element_by_name("selected[]").get_attribute("value")
+            lastname_field = element.find_element_by_css_selector("tr[name='entry'] > td:nth-of-type(2)").text
+            firstname_field = element.find_element_by_css_selector("tr[name='entry'] > td:nth-of-type(3)").text
+            users.append(AddUser(user_id=user_id, firstname=firstname_field, lastname=lastname_field))
+        return users
