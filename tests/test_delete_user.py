@@ -9,7 +9,7 @@ def test_delete_user(app):
         app.add_user.create_new_user(new_user)
     old_users = app.add_user.get_users_list()
     app.add_user.delete_user()
+    assert len(old_users) - 1 == app.add_user.count()
     new_users = app.add_user.get_users_list()
-    assert len(old_users) - 1 == len(new_users)
     old_users[0:1] = []
     assert old_users == new_users

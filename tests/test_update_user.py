@@ -18,7 +18,7 @@ def test_update_user(app):
     app.add_user.edit_user(edit_user_data)
 
     # получаем данные после редактирования
+    assert len(old_users) == app.add_user.count()
     edited_user = app.add_user.get_users_list()
-    assert len(old_users) == len(edited_user)
     old_users[0] = edit_user_data
     assert sorted(old_users, key=AddUser.user_id_or_max) == sorted(edited_user, key=AddUser.user_id_or_max)
