@@ -43,8 +43,11 @@ class AddUserHelper:
         self.users_cache = None
 
     def select_user(self):
+        self.select_user_by_index(0)
+
+    def select_user_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
 
     def init_edit_user(self):
         wd = self.app.wd
@@ -58,9 +61,12 @@ class AddUserHelper:
         self.users_cache = None
 
     def delete_user(self):
+        self.delete_user_by_index(0)
+
+    def delete_user_by_index(self, index):
         wd = self.app.wd
         self.home_page()
-        self.select_user()
+        self.select_user_by_index(index)
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         WebDriverWait(wd, 5)

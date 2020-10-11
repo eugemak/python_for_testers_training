@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from model.add_user_m import AddUser
+from random import randrange
 
 
 def test_delete_user(app):
@@ -8,8 +9,9 @@ def test_delete_user(app):
     if app.add_user.count() == 0:
         app.add_user.create_new_user(new_user)
     old_users = app.add_user.get_users_list()
-    app.add_user.delete_user()
+    index = randrange(len(old_users))
+    app.add_user.delete_user_by_index(index)
     assert len(old_users) - 1 == app.add_user.count()
     new_users = app.add_user.get_users_list()
-    old_users[0:1] = []
+    old_users[index:index+1] = []
     assert old_users == new_users
