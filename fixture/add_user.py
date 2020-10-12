@@ -89,7 +89,8 @@ class AddUserHelper:
             self.users_cache = []
             for element in wd.find_elements_by_css_selector("tr[name='entry']"):
                 user_id = element.find_element_by_name("selected[]").get_attribute("value")
-                lastname_field = element.find_element_by_css_selector("tr[name='entry'] > td:nth-of-type(2)").text
-                firstname_field = element.find_element_by_css_selector("tr[name='entry'] > td:nth-of-type(3)").text
+                cells = element.find_elements_by_tag_name("td")
+                firstname_field = cells[2].text
+                lastname_field = cells[1].text
                 self.users_cache.append(AddUser(user_id=user_id, firstname=firstname_field, lastname=lastname_field))
         return list(self.users_cache)
