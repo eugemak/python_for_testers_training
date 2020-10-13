@@ -16,7 +16,7 @@ def test_update_user(app):
                              title="Driver", company="Ferrari F1 Team (in 2021)", home_phone="000-000-00")
 
     # индекс = случайное число из общего количества пользователей
-    index = randrange(len(old_users))
+    index = randrange(1, len(old_users))
 
     # добавляем id редактируемого пользователя (index) в данные для редактирования
     edit_user_data.user_id = old_users[index].user_id
