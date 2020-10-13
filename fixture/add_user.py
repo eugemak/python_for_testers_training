@@ -9,8 +9,6 @@ class AddUserHelper:
 
     def home_page(self):
         wd = self.app.wd
-        # if not wd.current_url.endswith("/"):
-        #     wd.get("http://localhost/addressbook/")
         wd.find_element_by_link_text("home").click()
 
     def init_new_user(self):
@@ -49,15 +47,16 @@ class AddUserHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
-    def init_edit_user(self):
+    def init_edit_user(self, index):
         wd = self.app.wd
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        self.home_page()
+        wd.find_element_by_xpath("(//img[@alt='Edit'])[" + str(index) + "]").click()
 
-    def edit_user(self, add_user):
+    def edit_user(self, add_user, index):
         wd = self.app.wd
+        self.init_edit_user(index)
         self.fill_user_form(add_user)
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
-        self.home_page()
         self.users_cache = None
 
     def delete_user(self):
@@ -84,8 +83,6 @@ class AddUserHelper:
         if self.users_cache is None:
             wd = self.app.wd
             self.home_page()
-            wd.get("http://localhost/addressbook/")
-            wd.implicitly_wait(1)
             self.users_cache = []
             for element in wd.find_elements_by_css_selector("tr[name='entry']"):
                 user_id = element.find_element_by_name("selected[]").get_attribute("value")
