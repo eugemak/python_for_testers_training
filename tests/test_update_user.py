@@ -17,7 +17,7 @@ def test_update_user(app):
 
     # индекс = случайное число из общего количества пользователей
     index = randrange(1, len(old_users))
-
+    print('   ' + str(index))
     # добавляем id редактируемого пользователя (index) в данные для редактирования
     edit_user_data.user_id = old_users[index].user_id
 

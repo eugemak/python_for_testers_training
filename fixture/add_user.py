@@ -79,15 +79,27 @@ class AddUserHelper:
 
     users_cache = None
 
+    # def get_users_list(self):
+    #     if self.users_cache is None:
+    #         wd = self.app.wd
+    #         self.home_page()
+    #         self.users_cache = []
+    #         for element in wd.find_elements_by_css_selector("tr[name='entry']"):
+    #             user_id = element.find_element_by_name("selected[]").get_attribute("value")
+    #             cells = element.find_elements_by_tag_name("td")
+    #             firstname_field = cells[2].text
+    #             lastname_field = cells[1].text
+    #             self.users_cache.append(AddUser(user_id=user_id, firstname=firstname_field, lastname=lastname_field))
+    #     return list(self.users_cache)
+
     def get_users_list(self):
-        if self.users_cache is None:
-            wd = self.app.wd
-            self.home_page()
-            self.users_cache = []
-            for element in wd.find_elements_by_css_selector("tr[name='entry']"):
-                user_id = element.find_element_by_name("selected[]").get_attribute("value")
-                cells = element.find_elements_by_tag_name("td")
-                firstname_field = cells[2].text
-                lastname_field = cells[1].text
-                self.users_cache.append(AddUser(user_id=user_id, firstname=firstname_field, lastname=lastname_field))
+        wd = self.app.wd
+        self.home_page()
+        self.users_cache = []
+        for element in wd.find_elements_by_css_selector("tr[name='entry']"):
+            user_id = element.find_element_by_name("selected[]").get_attribute("value")
+            cells = element.find_elements_by_tag_name("td")
+            firstname_field = cells[2].text
+            lastname_field = cells[1].text
+            self.users_cache.append(AddUser(user_id=user_id, firstname=firstname_field, lastname=lastname_field))
         return list(self.users_cache)
