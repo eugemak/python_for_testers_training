@@ -95,12 +95,9 @@ class ContactHelper:
             self.users_cache.append(Contact(firstname=firstname_field, lastname=lastname_field, user_id=user_id,
                                             all_phones_from_home_page=all_phones, all_emails_from_home_page=all_emails))
 
-    def get_contacts_list(self, second_iteration):
-        if second_iteration is not True:
-            if self.users_cache is None:
-                self.get_user_from_table()
-            return list(self.users_cache)
-        self.get_user_from_table()
+    def get_contacts_list(self):
+        if self.users_cache is None:
+            self.get_user_from_table()
         return list(self.users_cache)
 
     def open_contact_to_edit_by_index(self, index):
