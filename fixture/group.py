@@ -18,6 +18,7 @@ class GroupHelper:
         self.fill_group_form(group)
         wd.find_element_by_name("submit").click()
         self.return_to_group_page()
+        wd.implicitly_wait(1)
         self.group_cache = None
 
     def init_new_group(self):
@@ -79,6 +80,7 @@ class GroupHelper:
         if self.group_cache is None:
             wd = self.app.wd
             self.return_to_group_page()
+            wd.implicitly_wait(1)
             self.group_cache = []
             for element in wd.find_elements_by_css_selector("span.group"):
                 text = element.text
