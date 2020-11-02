@@ -13,5 +13,5 @@ testdata = [
             title="Driver2", company="2", home_phone="222222",
             mobile_phone="2222222", work_phone="random_work_phone222",
             secondary_phone="random_secondary_phone222", email="random_email222",
-            email2="random_email2222", email3="random_email3222"),
+            email2="random_email2222", email3="random_email3222")
 ]

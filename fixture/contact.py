@@ -48,14 +48,35 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
+    def select_user_by_id(self, user_id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % user_id).click()
+
     def init_edit_user(self, index):
         wd = self.app.wd
         self.home_page()
         wd.find_element_by_xpath("(//img[@alt='Edit'])[" + str(index) + "]").click()
 
+    def init_edit_user_by_id(self, user_id):
+        wd = self.app.wd
+        self.home_page()
+        for element in wd.find_elements_by_name("entry"):
+            if element.find_element_by_name("selected[]").get_attribute("value") == user_id:
+                cells = element.find_elements_by_tag_name("td")
+                cells[7].find_element_by_xpath("(//img[@alt='Edit'])").click()
+                break
+            pass
+
     def edit_user(self, add_user, index):
         wd = self.app.wd
         self.init_edit_user(index)
+        self.fill_user_form(add_user)
+        wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
+        self.users_cache = None
+
+    def edit_user_by_id(self, add_user, user_id):
+        wd = self.app.wd
+        self.init_edit_user_by_id(user_id)
         self.fill_user_form(add_user)
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
         self.users_cache = None
@@ -67,6 +88,16 @@ class ContactHelper:
         wd = self.app.wd
         self.home_page()
         self.select_user_by_index(index)
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        WebDriverWait(wd, 5)
+        self.home_page()
+        self.users_cache = None
+
+    def delete_user_by_id(self, user_id):
+        wd = self.app.wd
+        self.home_page()
+        self.select_user_by_id(user_id)
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         WebDriverWait(wd, 5)
