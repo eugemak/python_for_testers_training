@@ -62,10 +62,9 @@ class ContactHelper:
         self.home_page()
         for element in wd.find_elements_by_name("entry"):
             if element.find_element_by_name("selected[]").get_attribute("value") == user_id:
-                cells = element.find_elements_by_tag_name("td")
-                cells[7].find_element_by_xpath("(//img[@alt='Edit'])").click()
+                cell = element.find_elements_by_tag_name("td")[7]
+                cell.find_element_by_tag_name("a").click()
                 break
-            pass
 
     def edit_user(self, add_user, index):
         wd = self.app.wd
