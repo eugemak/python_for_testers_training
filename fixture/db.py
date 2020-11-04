@@ -2,6 +2,7 @@
 import pymysql.cursors
 from model.group_m import Group
 from model.contact_m import Contact
+from model.contact_in_group_m import ContactInGroup
 
 
 class DbFixture:
@@ -29,7 +30,7 @@ class DbFixture:
         list = []
         cursor = self.connection.cursor()
         try:
-            cursor.execute("select id, firstname, lastname from addressbook where deprecated = 0")
+            cursor.execute("select id, firstname, lastname from addressbook")
             for row in cursor:
                 (user_id, firstname, lastname) = row
                 list.append(Contact(user_id=str(id), firstname=firstname, lastname=lastname))
@@ -37,14 +38,31 @@ class DbFixture:
             cursor.close()
         return list
 
-    # cursor.execute("select id, firstname, middlename, lastname, company, title, home, mobile, work, \
-    #                            email, email2, email3 from addressbook")
-    # for row in cursor:
-    #     (user_id, firstname, middlename, lastname, title, company, home, mobile, work, email, email2, email3) = row
-    #     list.append(Contact(user_id=id, firstname=firstname, middlename=middlename,
-    #                         lastname=lastname, title=title, company=company, home_phone=home,
-    #                         mobile_phone=mobile, work_phone=work,
-    #                         email=email, email2=email2, email3=email3))
+    def get_contact_in_group(self, user_id, group_id):
+        list = []
+        cursor = self.connection.cursor()
+        try:
+            sql = ("select id, group_id from address_in_groups where id = '%s' and group_id = '%s'" % (user_id, group_id))
+            cursor.execute(sql)
+            for row in cursor:
+                (id, group_id) = row
+                list.append(ContactInGroup(user_id=str(id), group_id=str(group_id)))
+        finally:
+            cursor.close()
+        return list
+
+    def get_all_users_in_all_groups(self):
+        list = []
+        cursor = self.connection.cursor()
+        try:
+            sql = "select id, group_id from address_in_groups"
+            cursor.execute(sql)
+            for row in cursor:
+                (id, group_id) = row
+                list.append(ContactInGroup(user_id=str(id), group_id=str(group_id)))
+        finally:
+            cursor.close()
+        return list
 
     def destroy(self):
         self.connection.close()

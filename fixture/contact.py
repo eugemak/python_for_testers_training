@@ -1,5 +1,6 @@
 from model.contact_m import Contact
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
 import re
 
 
@@ -175,3 +176,28 @@ class ContactHelper:
         secondary_phone = re.search("P: (.*)", text).group(1)
         return Contact(home_phone=home_phone, mobile_phone=mobile_phone,
                        work_phone=work_phone, secondary_phone=secondary_phone)
+
+    def go_to_group_view(self, group_id):
+        wd = self.app.wd
+        url = './?group=' + group_id
+        wd.find_element_by_xpath('//a[@href="' + url + '"]')
+
+    def add_contact_to_group_by_id(self, user_id, group_id):
+        wd = self.app.wd
+        self.home_page()
+        self.select_user_by_id(user_id)
+        wd.find_element_by_name("to_group").click()
+        Select(wd.find_element_by_xpath("//select[@name='to_group']")).select_by_value(group_id)
+        wd.find_element_by_xpath("(//option[@value="+group_id+"])[2]").click()
+        wd.find_element_by_name("add").click()
+        self.go_to_group_view(group_id)
+
+    def delete_user_from_group(self, user_id, group_id):
+        wd = self.app.wd
+        self.home_page()
+        wd.find_element_by_name("group").click()
+        Select(wd.find_element_by_name("group")).select_by_value(group_id)
+        wd.find_element_by_xpath("//option[@value='"+group_id+"']").click()
+        wd.find_element_by_id(user_id).click()
+        wd.find_element_by_name("remove").click()
+        self.go_to_group_view(group_id)
