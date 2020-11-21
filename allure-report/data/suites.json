@@ -4,87 +4,48 @@
   "children" : [ {
     "name" : "tests",
     "children" : [ {
-      "name" : "test_add_group",
+      "name" : "test_phones",
       "children" : [ {
-        "name" : "test_add_group_db_orm_assert[None:;;]",
-        "uid" : "e82f9a032980bd0f",
-        "parentUid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f",
+        "name" : "test_phones_on_home_page",
+        "uid" : "50bfb553abcf5737",
+        "parentUid" : "d5e3bf270260a2abb21b2303c69ba9fe",
         "status" : "passed",
         "time" : {
-          "start" : 1605901306148,
-          "stop" : 1605901308404,
-          "duration" : 2256
+          "start" : 1605952663954,
+          "stop" : 1605952665250,
+          "duration" : 1296
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "None:;;" ]
+        "parameters" : [ ]
       }, {
-        "name" : "test_add_group_db_orm_assert[None:nameQHxtdnH ;header5321WxR;footerr32SbETQ5t  7teH MI]",
-        "uid" : "f60427941c6dfda2",
-        "parentUid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f",
-        "status" : "passed",
+        "name" : "test_phones_on_contact_view_page",
+        "uid" : "91390caae02f3599",
+        "parentUid" : "d5e3bf270260a2abb21b2303c69ba9fe",
+        "status" : "broken",
         "time" : {
-          "start" : 1605901308462,
-          "stop" : 1605901310790,
-          "duration" : 2328
+          "start" : 1605952665284,
+          "stop" : 1605952665723,
+          "duration" : 439
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "None:nameQHxtdnH ;header5321WxR;footerr32SbETQ5t  7teH MI" ]
+        "parameters" : [ ]
       }, {
-        "name" : "test_add_group_db_orm_assert[None:nameG TZ;headerT  c EvV;footerv3PW8lW]",
-        "uid" : "de75b7f0faa7fd21",
-        "parentUid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f",
+        "name" : "test_phones_on_home_page_orm_check",
+        "uid" : "8af3770934e9d5d6",
+        "parentUid" : "d5e3bf270260a2abb21b2303c69ba9fe",
         "status" : "passed",
         "time" : {
-          "start" : 1605901310833,
-          "stop" : 1605901313103,
-          "duration" : 2270
+          "start" : 1605952665854,
+          "stop" : 1605952665858,
+          "duration" : 4
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "None:nameG TZ;headerT  c EvV;footerv3PW8lW" ]
-      }, {
-        "name" : "test_add_group_db_orm_assert[None:nameUDIsVXsda;headerX6U8UgA tmSZP;footer Yoiuyz zd7jiyHff]",
-        "uid" : "6c7b5288a0ff635",
-        "parentUid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605901313158,
-          "stop" : 1605901315401,
-          "duration" : 2243
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "None:nameUDIsVXsda;headerX6U8UgA tmSZP;footer Yoiuyz zd7jiyHff" ]
-      }, {
-        "name" : "test_add_group_db_orm_assert[None:name;headernFeEsnEYH0abn5hv3kd;footeruK3V7xrbwx r7ExH]",
-        "uid" : "4c5d51a2deebdd9d",
-        "parentUid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605901315447,
-          "stop" : 1605901317748,
-          "duration" : 2301
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "None:name;headernFeEsnEYH0abn5hv3kd;footeruK3V7xrbwx r7ExH" ]
-      }, {
-        "name" : "test_add_group_db_orm_assert[None:name;headerYxaY;footergj6iaRZ2JsNer7jq ]",
-        "uid" : "57e4c3b52ddf6ed8",
-        "parentUid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605901317800,
-          "stop" : 1605901320100,
-          "duration" : 2300
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "None:name;headerYxaY;footergj6iaRZ2JsNer7jq " ]
+        "parameters" : [ ]
       } ],
-      "uid" : "f04d2d2a7c5b8daeff27c9d5f382ad3f"
+      "uid" : "d5e3bf270260a2abb21b2303c69ba9fe"
     } ],
     "uid" : "e387fa4bb326b54ea8c19c2822aba374"
   } ]

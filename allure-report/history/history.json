@@ -1,5 +1,5 @@
 {
-  "e1cea955d4b7aabbb76a23f8b0b491f7" : {
+  "e2853af8e4dc661ceb084a472f4f41e7" : {
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -9,35 +9,36 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "de75b7f0faa7fd21",
+      "uid" : "50bfb553abcf5737",
       "status" : "passed",
       "time" : {
-        "start" : 1605901310833,
-        "stop" : 1605901313103,
-        "duration" : 2270
+        "start" : 1605952663954,
+        "stop" : 1605952665250,
+        "duration" : 1296
       }
     } ]
   },
-  "2712506397b337c953d668b7301c4367" : {
+  "e8cab8dbc3195dec3d3bb75d0079befd" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
+      "broken" : 1,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "4c5d51a2deebdd9d",
-      "status" : "passed",
+      "uid" : "91390caae02f3599",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'group'",
       "time" : {
-        "start" : 1605901315447,
-        "stop" : 1605901317748,
-        "duration" : 2301
+        "start" : 1605952665284,
+        "stop" : 1605952665723,
+        "duration" : 439
       }
     } ]
   },
-  "4675ba84e3e75c1d2ef696eb012880cc" : {
+  "d0305621ea2ed2f4415b228ae875b268" : {
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -47,69 +48,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "57e4c3b52ddf6ed8",
+      "uid" : "8af3770934e9d5d6",
       "status" : "passed",
       "time" : {
-        "start" : 1605901317800,
-        "stop" : 1605901320100,
-        "duration" : 2300
-      }
-    } ]
-  },
-  "f372b41712d2148f784a33d826e74476" : {
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "e82f9a032980bd0f",
-      "status" : "passed",
-      "time" : {
-        "start" : 1605901306148,
-        "stop" : 1605901308404,
-        "duration" : 2256
-      }
-    } ]
-  },
-  "ba7986bff610895ba6a181909abcbbd4" : {
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "f60427941c6dfda2",
-      "status" : "passed",
-      "time" : {
-        "start" : 1605901308462,
-        "stop" : 1605901310790,
-        "duration" : 2328
-      }
-    } ]
-  },
-  "5d12f65a420d11dba9aa78d1b0ab2de4" : {
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "6c7b5288a0ff635",
-      "status" : "passed",
-      "time" : {
-        "start" : 1605901313158,
-        "stop" : 1605901315401,
-        "duration" : 2243
+        "start" : 1605952665854,
+        "stop" : 1605952665858,
+        "duration" : 4
       }
     } ]
   }
