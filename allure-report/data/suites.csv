@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Nov 21 12:57:45 MSK 2020","Sat Nov 21 12:57:45 MSK 2020","4","tests","test_phones","","","","test_phones_on_home_page_orm_check",""
-"passed","Sat Nov 21 12:57:43 MSK 2020","Sat Nov 21 12:57:45 MSK 2020","1296","tests","test_phones","","","","test_phones_on_home_page",""
-"broken","Sat Nov 21 12:57:45 MSK 2020","Sat Nov 21 12:57:45 MSK 2020","439","tests","test_phones","","","","test_phones_on_contact_view_page",""
